@@ -1,0 +1,144 @@
+$shade1: #383536; // Background Highlight
+$shade2: #E8E9EB; // Text
+$shade3: #636564; // Lightest Dark
+$shade4: #2A2B2A; // Background
+$shade5: #ED474A; // Red
+$shade6: #2274A5; // Blue
+$shade7: #DDB967; // Yellow
+
+body {
+
+	background-color: $shade4;
+	color: $shade7;
+
+	.app {
+		max-width: 350px;
+
+		.message-box {
+			.message {
+				text-align: left;
+
+				&.peer {
+					color: $shade2;
+				}
+			}
+
+			input {
+				width: 100%;
+			}
+		}
+
+		input {
+			color: $shade7;
+			background-color: $shade4;
+			border: none;
+
+			&:focus {
+				background-color: $shade1;
+				outline: none;
+			}
+		}
+
+		.panel,
+		button {
+			background-color: $shade4;
+			color: $shade7;
+			border: 1px dotted $shade7;
+			border-radius: 4px;
+			padding: 4px;
+			margin-bottom: 4px;
+			margin-right: 4px;
+			text-align: center;
+			font-size: 11px;
+		}
+
+		.floor-state,
+		.floor-door-state {
+
+			transition: 
+				0.7s ease background-color,
+				0.7s ease border-color, 
+				0.7s ease color;
+
+			&.white {
+				transition: none;
+				background-color: $shade1;
+				color: $shade2;
+				border-color: $shade2;
+			}
+
+			&.red {
+				color: $shade5;
+				border-color: $shade5;
+			}
+
+			&.yellow {
+				color: $shade7;
+				border-color: $shade7;
+			}
+
+			&.hidden {
+				border-color: $shade3;
+				color: $shade3;
+			}
+		}
+
+		button {
+			&:focus {
+				outline: none;
+			}
+
+			transition: 
+				1.4s ease color, 
+				1.4s ease background-color,
+				1.4s ease border-color;
+
+			&:disabled {
+				border-color: $shade3;
+				color: $shade3;
+			}
+
+			&.clicked,
+			&.toggled {
+				transition: none;
+				background-color: $shade1;
+				color: $shade2;
+				border-color: $shade2;
+			}
+		}
+
+		b,
+		h4,
+		h3 {
+			color: $shade2; 
+		}
+
+		.floor-display {
+			align-items: flex-start;
+			justify-content: flex-end;
+
+			transition: 
+				1.4s ease background-color,
+				1.4s ease border-color, 
+				1.4s ease color;
+
+			&.highlight {
+				transition: none;
+				background-color: $shade1;
+				color: $shade2;
+			}
+
+			>div {
+				padding: 4px;
+				margin-bottom: 4px;
+				margin-right: 4px;
+				min-width: 80px;
+			}
+		}
+
+		.row {
+			display: flex;
+			flex-direction: row;
+		}
+	}
+}

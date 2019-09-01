@@ -1,0 +1,82 @@
+body {
+  background-color: #2A2B2A;
+  color: #DDB967; }
+  body .app {
+    max-width: 350px; }
+    body .app .message-box .message {
+      text-align: left; }
+      body .app .message-box .message.peer {
+        color: #E8E9EB; }
+    body .app .message-box input {
+      width: 100%; }
+    body .app input {
+      color: #DDB967;
+      background-color: #2A2B2A;
+      border: none; }
+      body .app input:focus {
+        background-color: #383536;
+        outline: none; }
+    body .app .panel,
+    body .app button {
+      background-color: #2A2B2A;
+      color: #DDB967;
+      border: 1px dotted #DDB967;
+      border-radius: 4px;
+      padding: 4px;
+      margin-bottom: 4px;
+      margin-right: 4px;
+      text-align: center;
+      font-size: 11px; }
+    body .app .floor-state,
+    body .app .floor-door-state {
+      transition: 0.7s ease background-color, 0.7s ease border-color,  0.7s ease color; }
+      body .app .floor-state.white,
+      body .app .floor-door-state.white {
+        transition: none;
+        background-color: #383536;
+        color: #E8E9EB;
+        border-color: #E8E9EB; }
+      body .app .floor-state.red,
+      body .app .floor-door-state.red {
+        color: #ED474A;
+        border-color: #ED474A; }
+      body .app .floor-state.yellow,
+      body .app .floor-door-state.yellow {
+        color: #DDB967;
+        border-color: #DDB967; }
+      body .app .floor-state.hidden,
+      body .app .floor-door-state.hidden {
+        border-color: #636564;
+        color: #636564; }
+    body .app button {
+      transition: 1.4s ease color,  1.4s ease background-color, 1.4s ease border-color; }
+      body .app button:focus {
+        outline: none; }
+      body .app button:disabled {
+        border-color: #636564;
+        color: #636564; }
+      body .app button.clicked, body .app button.toggled {
+        transition: none;
+        background-color: #383536;
+        color: #E8E9EB;
+        border-color: #E8E9EB; }
+    body .app b,
+    body .app h4,
+    body .app h3 {
+      color: #E8E9EB; }
+    body .app .floor-display {
+      align-items: flex-start;
+      justify-content: flex-end;
+      transition: 1.4s ease background-color, 1.4s ease border-color,  1.4s ease color; }
+      body .app .floor-display.highlight {
+        transition: none;
+        background-color: #383536;
+        color: #E8E9EB; }
+      body .app .floor-display > div {
+        padding: 4px;
+        margin-bottom: 4px;
+        margin-right: 4px;
+        min-width: 80px; }
+    body .app .row {
+      display: flex;
+      flex-direction: row; }
