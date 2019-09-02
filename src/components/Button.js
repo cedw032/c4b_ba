@@ -1,10 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import cx from 'classnames';
 
 const Button = (props) => {
 	const [clicked, setClicked] = useState(false);
 
 	const clickDuration = 140;
+
+	useEffect(() => {
+		return () => {
+			if (clicked) clearTimeout(clicked);		
+		};
+	}, [clicked]);
 
 	return (
 

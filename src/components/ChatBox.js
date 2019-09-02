@@ -2,32 +2,28 @@ import React, {useState} from 'react';
 import cx from 'classnames';
 import useMessenger from '../hooks/useMessenger';
 
-const PeerDisplay = ({self, peer}) => {
+const ChatBox = ({username, endClient}) => {
 
-	const [log, sendMessage] = useMessenger(self.id, peer.id);
+	const [log, sendMessage] = useMessenger(username, endClient);
 
 	const [input, setInput] = useState('');
 
-	const getMessageClassname = message => cx(
+	const getMessageClassname = (message) => cx(
 		'message',
-		message.from === self.id && 'self',
-		message.from === peer.id && 'peer',
+		message.from === username && 'self',
+		message.from !== username && 'peer',
 	);
-
-	const getUsername = message => message.from === self.id
-		? self.username
-		: peer.username;
 
 	return (
 		<div className='panel'>
 			<div>
-			username: {peer.username}
+			username: {username}
 			</div>
 			<div className='panel message-box'>
 				{log.map(message => 
 					<div className={getMessageClassname(message)}>
 						<span>{message.at.format('h:mma')} - </span>
-						<span>{getUsername(message)}: </span>
+						<span>{message.from}: </span>
 						<span>{message.content}</span>
 					</div>
 				)}
@@ -47,4 +43,4 @@ const PeerDisplay = ({self, peer}) => {
 	);
 }
 
-export default PeerDisplay;
+export default ChatBox;

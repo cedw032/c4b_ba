@@ -2,36 +2,35 @@ import {useState} from 'react';
 import moment from 'moment';
 import useSocket from './useSocket';
 
-const useMessenger = (id, peerId) => {
+const useMessenger = (username, to) => {
 
 	const [log, setLog] = useState([]);
 
 	const addToLog = message => setLog([
 		...log, 
 		{
+			at: moment(message.at),
 			...message,
-			at: moment(message.at)
 		}
 	]);
 
 	const socket = useSocket({
-		message: message => message.from === peerId && addToLog(message),
+		message: message => message.from === to && addToLog(message),
 	});
 
 	const sendMessage = content => {
-		
-		const message = {
-			from: id,
-			content,
-			at: moment().toISOString(),
-		}
 
-		addToLog(message);
-		socket.emit('dispatch', {
-			type: 'message',
-			to: [peerId],
-			payload: message,
-		})
+		addToLog({
+			content,
+			at: moment(),
+			from: username,
+		});
+
+		socket.emit('message', {
+			to,
+			content,
+		});
+
 	};
 
 	return [log, sendMessage]
