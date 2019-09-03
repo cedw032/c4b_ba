@@ -1,22 +1,22 @@
-import {useState, useRef} from 'react';
+import {useRef} from 'react';
 import moment from 'moment';
 import useSocket from './useSocket';
+import usePersistentState from './usePersistentState';
 
 const useMessenger = (username, peer) => {
 
-	const [log, setLog] = useState([]);
+	const [log, setLog] = usePersistentState(
+		`messenger-log-${username}-${peer}`, 
+		[]
+	);
+
 	const logRef = useRef();
 	logRef.current = log;
 
 	const addToLog = message => setLog([
 		...logRef.current, 
-		{
-			...message,
-			at: moment(message.at)
-		}
+		message,
 	]);
-
-	console.log('peer', peer);
 
 	const socket = useSocket({
 		message: message => (message.from == peer && addToLog(message)),

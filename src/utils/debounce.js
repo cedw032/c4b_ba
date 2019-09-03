@@ -11,6 +11,8 @@ const debounce = (key, method, period) => {
 		method();
 		timeouts[key] = undefined;
 	}, period);
+
+	return timeouts[key];
 }
 
 export default debounce;

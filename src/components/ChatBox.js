@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import cx from 'classnames';
 import useMessenger from '../hooks/useMessenger';
+import moment from 'moment';
 
 const ChatBox = ({username, endClient}) => {
 
@@ -20,7 +21,7 @@ const ChatBox = ({username, endClient}) => {
 				<div 
 					key={i}
 					className={getMessageClassname(message)}>
-					<span>{message.at.format('h:mma')} - </span>
+					<span>{moment(message.at).format('h:mma')} - </span>
 					<span>{message.from}: </span>
 					<span>{message.content}</span>
 				</div>
