@@ -17,6 +17,7 @@ body {
 		.message-box {
 			.message {
 				text-align: left;
+				overflow-wrap: break-word;
 
 				&.peer {
 					color: $shade2;

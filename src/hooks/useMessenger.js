@@ -19,7 +19,11 @@ const useMessenger = (username, peer) => {
 	]);
 
 	const socket = useSocket({
-		message: message => (message.from == peer && addToLog(message)),
+		message: message => {
+			if (message.from == peer || message.isBusiness) {
+				addToLog(message);
+			}
+		} 
 	});
 
 	const sendMessage = content => {

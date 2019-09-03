@@ -4,7 +4,8 @@ body {
   body .app {
     max-width: 350px; }
     body .app .message-box .message {
-      text-align: left; }
+      text-align: left;
+      overflow-wrap: break-word; }
       body .app .message-box .message.peer {
         color: #E8E9EB; }
     body .app .message-box input {
